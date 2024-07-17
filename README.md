@@ -23,22 +23,6 @@ This node saves the model in Kolors Unet format. Place the saved weight in the `
 
 [ComfyUI-Kolors-MZ](https://github.com/MinusZoneAI/ComfyUI-Kolors-MZ)
 
+## Star History
 
-<picture>
-  <source
-    media="(prefers-color-scheme: dark)"
-    srcset="
-      https://api.star-history.com/svg?repos=lrzjason/Comfyui-Kolors-Utils&type=Date&theme=dark
-    "
-  />
-  <source
-    media="(prefers-color-scheme: light)"
-    srcset="
-      https://api.star-history.com/svg?repos=lrzjason/Comfyui-Kolors-Utils&type=Date
-    "
-  />
-  <img
-    alt="Star History Chart"
-    src="https://api.star-history.com/svg?repos=lrzjason/Comfyui-Kolors-Utils&type=Date"
-  />
-</picture>
+[![Star History Chart](https://api.star-history.com/svg?repos=Comfyui-Kolors-Utils/Comfyui-Kolors-Utils&type=Date)](https://star-history.com/#Comfyui-Kolors-Utils/Comfyui-Kolors-Utils&Date)

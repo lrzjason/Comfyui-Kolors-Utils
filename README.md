@@ -8,7 +8,7 @@ cd custom_nodes
 git clone https://github.com/lrzjason/Comfyui-Kolors-Utils.git
 ···
 
-restart comfyui, search 'Save Weight As Kolors Unet' \
+Restart comfyui, search 'Save Weight As Kolors Unet'
 
 Save Weight As Kolors Unet: \
 save model to kolors unet format. Place the saved weight to models/unet and use the following plugin to load the unet. \

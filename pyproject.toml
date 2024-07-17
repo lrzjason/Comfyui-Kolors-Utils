@@ -1,0 +1,14 @@
+[project]
+name = "comfyui-kolors-utils"
+description = "Nodes: Save Weight As Kolors Unet"
+version = "1.0.0"
+license = "LICENSE"
+
+[project.urls]
+Repository = "https://github.com/lrzjason/Comfyui-Kolors-Utils"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "Comfyui-Kolors-Utils"
+Icon = ""

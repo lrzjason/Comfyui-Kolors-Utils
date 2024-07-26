@@ -8,6 +8,41 @@ import torch
 from comfy import model_management
 import safetensors
 
+class SaveKolors:
+    def __init__(self):
+        self.output_dir = folder_paths.get_output_directory()
+
+    @classmethod
+    def INPUT_TYPES(s):
+        return  {
+                    "required": { 
+                        "model": ("MODEL",),
+                        "filename": ("STRING", {"default": "checkpoints/ComfyUI"}),
+                        "vae": ("VAE",),
+                    },
+                }
+    RETURN_TYPES = ()
+    FUNCTION = "save"
+    OUTPUT_NODE = True
+
+    CATEGORY = "KolorsUtils/model_merging"
+
+    def save(self, model, filename="checkpoints/ComfyUI", vae=None):
+        clip_sd = None
+        load_models = [model]
+        full_output_folder, filename, counter, subfolder, filename_prefix = folder_paths.get_save_image_path(filename, self.output_dir)
+        output_checkpoint = f"{filename}.safetensors"
+        output_checkpoint = os.path.join(full_output_folder, output_checkpoint)
+        print("save checkpoint to:",output_checkpoint)
+        model_management.load_models_gpu(load_models, force_patch_weights=True)
+        sd = model.model.state_dict_for_saving(clip_sd, vae.get_sd(), None)
+        for k in sd:
+            t = sd[k]
+            if not t.is_contiguous():
+                sd[k] = t.contiguous()
+
+        comfy.utils.save_torch_file(sd, output_checkpoint, metadata={'format': 'pt'})
+        return {}
 
 class SaveWeightAsKolorsUnet:
     def __init__(self):
@@ -84,9 +119,11 @@ class SaveWeightAsKolorsUnet:
         return {}
 
 NODE_CLASS_MAPPINGS = {
-    "Save Weight As Kolors Unet": SaveWeightAsKolorsUnet,
+    "SaveWeightAsKolorsUnet": SaveWeightAsKolorsUnet,
+    "SaveKolors": SaveKolors,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "KolorsUtils": "SaveWeightAsKolorsUnet",
+    "SaveWeightAsKolorsUnet": "Save Weight As Kolors Unet",
+    "SaveKolors": "Save Kolors",
 }

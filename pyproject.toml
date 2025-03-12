@@ -2,7 +2,7 @@
 name = "comfyui-kolors-utils"
 description = "Nodes: Save Weight As Kolors Unet"
 version = "1.0.0"
-license = "LICENSE"
+license = { file = "LICENSE" }
 
 [project.urls]
 Repository = "https://github.com/lrzjason/Comfyui-Kolors-Utils"
